@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101510" />
+  <meta name="description" content="Acompanhe seu bank, ganhos e metas de gold." />
+  <title>Gold Ledger — seu bank, em perspectiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Gold Ledger início"><span class="brand-mark">G</span><span>gold<span class="brand-light">ledger</span></span></a>
+      <div class="side-caption">SEU ESPAÇO</div>
+      <nav><a class="nav-item active" href="#overview"><span class="nav-icon">◫</span> Visão geral</a><a class="nav-item" href="#history"><span class="nav-icon">↗</span> Histórico</a><a class="nav-item" href="#goal-card"><span class="nav-icon">◎</span> Meta atual</a></nav>
+      <div class="sidebar-bottom"><div class="side-divider"></div><div class="privacy-note"><span class="privacy-dot"></span><span>Seus dados, só seus.<br><small>Sincronizados com segurança</small></span></div><button class="signout" id="signout" hidden>↗ &nbsp; Sair da conta</button><div class="side-version">GOLD LEDGER <span>·</span> BETA</div></div>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar"><div><div class="eyebrow" id="today-label">SEU PROGRESSO</div><h1>Visão geral</h1></div><div class="top-actions"><div class="sync-status"><span class="sync-dot"></span><span id="sync-label">Aguardando conexão</span></div><button class="avatar" id="account-avatar" aria-label="Conta">G</button></div></header>
+
+      <section class="hero-grid">
+        <article class="card balance-card"><div class="card-topline"><span class="eyebrow">SALDO NO BANCO</span><span class="live-indicator"><i></i> ATUAL</span></div><div class="balance-value" id="balance-value">—</div><div class="balance-meta"><span id="balance-exact-hint">Seu saldo mais recente</span><span class="balance-change" id="balance-change">Sem lançamentos</span></div><div class="balance-rule"></div><div class="balance-footer"><span>ÚLTIMA ATUALIZAÇÃO</span><span id="balance-date">—</span></div></article>
+
+        <article class="card goal-card" id="goal-card"><div class="card-topline"><span class="eyebrow">META EM ANDAMENTO</span><button class="text-button" id="new-goal-shortcut">+ Nova meta</button></div><div class="goal-title-row"><div><h2 id="goal-name">Defina seu próximo objetivo</h2><div class="goal-target" id="goal-target">Escolha um saldo final para começar</div></div><span class="goal-icon">◎</span></div><div class="progress-label"><span>Progresso</span><strong id="goal-percent">0%</strong></div><div class="progress-track"><div class="progress-fill" id="goal-progress"></div></div><div class="goal-footer"><span id="goal-current">0 gp acumulado</span><span id="goal-remaining">— até a meta</span></div><div class="timeline-wrap"><div class="timeline-head"><span>LINHA DO TEMPO</span><span id="timeline-range">—</span></div><div class="timeline" id="timeline"><span class="timeline-line"></span></div><div class="timeline-labels"><span id="timeline-start">Início da meta</span><span id="timeline-end">Previsão pendente</span></div></div></article>
+      </section>
+
+      <section class="stats-grid"><article class="stat-card"><div class="stat-label"><span class="stat-icon">↗</span> FARMADO NO ÚLTIMO DIA</div><div class="stat-value" id="daily-earned">—</div><div class="stat-foot" id="daily-note">Aguardando lançamentos</div></article><article class="stat-card"><div class="stat-label"><span class="stat-icon">⌁</span> MÉDIA DIÁRIA</div><div class="stat-value" id="average-earned">—</div><div class="stat-foot" id="average-note">Calculada pelo histórico</div></article><article class="stat-card estimate-card"><div class="stat-label"><span class="stat-icon">◷</span> PREVISÃO DA META</div><div class="stat-value estimate-value" id="estimate-date">—</div><div class="stat-foot" id="estimate-note">Mais dados deixam a previsão melhor</div></article></section>
+
+      <section class="content-grid"><article class="card history-card" id="history"><div class="section-heading"><div><div class="eyebrow">ATIVIDADE RECENTE</div><h2>Histórico do bank</h2></div><button class="outline-button" id="add-entry">＋ &nbsp; Lançar saldo</button></div><div class="history-list" id="history-list"><div class="empty-state"><div class="empty-icon">⌁</div><strong>Nenhum lançamento ainda</strong><span>Registre seu saldo de hoje para começar a acompanhar.</span><button class="text-button" id="empty-add">Fazer primeiro lançamento →</button></div></div></article><aside class="card insight-card"><div class="eyebrow">SUA JORNADA</div><h2>Um passo de cada vez.</h2><p>Consistência no registro traz uma previsão cada vez mais precisa do seu próximo objetivo.</p><div class="insight-divider"></div><div class="insight-metric"><span>Dias registrados</span><strong id="days-count">0</strong></div><div class="insight-metric"><span>Variação total</span><strong id="total-change">—</strong></div><button class="insight-link" id="new-goal-link">Gerenciar metas <span>→</span></button></aside></section>
+      <footer class="footer"><span>GOLD LEDGER <span class="footer-sep">·</span> FEITO PARA SUA JORNADA</span><span id="footer-account">Dados privados e sincronizados</span></footer>
+    </main>
+  </div>
+
+  <div class="auth-gate" id="auth-gate"><div class="auth-panel"><a class="brand auth-brand" href="#"><span class="brand-mark">G</span><span>gold<span class="brand-light">ledger</span></span></a><div class="eyebrow">SEU BANK, EM PERSPECTIVA</div><h1 id="auth-heading">Bem-vindo de volta.</h1><p class="auth-copy" id="auth-copy">Entre para acompanhar seu progresso e suas metas.</p><form id="auth-form"><label for="auth-email">E-mail</label><input id="auth-email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required><label for="auth-password">Senha</label><input id="auth-password" type="password" placeholder="Sua senha" autocomplete="current-password" required minlength="6"><div class="auth-error" id="auth-error" role="alert"></div><button class="primary-button" id="auth-submit" type="submit">Entrar <span>→</span></button></form><div class="auth-switch" id="auth-switch">Ainda não tem conta? <button id="toggle-auth">Criar conta</button></div><div class="auth-config-note" id="config-note" hidden>Configure a URL e a chave pública do Supabase no arquivo <code>config.js</code> para começar.</div></div><div class="auth-footer">PROGRESSO QUE SE CONSTRÓI UM DIA DE CADA VEZ.</div></div>
+
+  <dialog id="entry-dialog" class="modal"><form id="entry-form" method="dialog"><div class="modal-header"><div><div class="eyebrow">REGISTRO DO BANK</div><h2 id="entry-heading">Lançar saldo</h2></div><button type="button" class="close-button" data-close="entry-dialog">×</button></div><p class="modal-copy">Anote o saldo que está disponível no seu banco.</p><label for="entry-amount">Saldo atual</label><div class="input-suffix"><input id="entry-amount" placeholder="Ex.: 1,25kk ou 250k" required inputmode="decimal" autocomplete="off"><span>GP</span></div><div class="field-hint">Aceita gp, k, kk ou kkk — exemplo: 1,5kk</div><label for="entry-date">Data do lançamento</label><input id="entry-date" type="date" required><div class="form-error" id="entry-error"></div><div class="modal-actions"><button type="button" class="outline-button" data-close="entry-dialog">Cancelar</button><button class="primary-button" id="entry-submit" type="submit">Salvar lançamento <span>→</span></button></div></form></dialog>
+
+  <dialog id="goal-dialog" class="modal"><form id="goal-form" method="dialog"><div class="modal-header"><div><div class="eyebrow">PRÓXIMO OBJETIVO</div><h2 id="goal-dialog-title">Criar uma meta</h2></div><button type="button" class="close-button" data-close="goal-dialog">×</button></div><p class="modal-copy">Escolha um saldo final. Quando você alcançar, poderá começar a próxima etapa.</p><label for="goal-label">Nome da meta <span class="optional">OPCIONAL</span></label><input id="goal-label" placeholder="Ex.: Montaria nova"><label for="goal-amount">Saldo final desejado</label><div class="input-suffix"><input id="goal-amount" placeholder="Ex.: 10kk" required inputmode="decimal" autocomplete="off"><span>GP</span></div><div class="field-hint">Use o saldo total que deseja alcançar.</div><div class="form-error" id="goal-error"></div><div class="modal-actions"><button type="button" class="outline-button" data-close="goal-dialog">Cancelar</button><button class="primary-button" type="submit">Salvar meta <span>→</span></button></div></form></dialog>
+
+  <dialog id="confirm-dialog" class="modal compact-modal"><div class="eyebrow">CONFIRMAR AÇÃO</div><h2 id="confirm-title">Excluir lançamento?</h2><p class="modal-copy" id="confirm-copy">Esta ação não pode ser desfeita.</p><div class="modal-actions"><button class="outline-button" data-close="confirm-dialog">Cancelar</button><button class="danger-button" id="confirm-action">Excluir</button></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
